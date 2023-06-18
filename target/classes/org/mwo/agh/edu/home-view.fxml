@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mwo.agh.edu.Controller">
+   <top>
+      <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #D9D8D5;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" text="RAPORT GODZINOWY">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="exit" layoutX="1155.0" layoutY="13.0" text="EXIT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #807F7D;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutY="32.0" prefHeight="225.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#home" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;"
+                          text="STRONA GŁÓWNA">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#employeesToHours" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;" text="RANKING PRACOWNIKÓW">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#monthsToHours" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;" text="RANKING MIESIĘCY">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#daysToHours" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;" text="RANKING DNI">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children></VBox>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="1500.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="1500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

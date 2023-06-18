@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #FFFDFA" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mwo.agh.edu.pages.DaysToHoursRankingPage">
+    <children><TableView fx:id="tableView" layoutX="38.0" layoutY="175.0" prefHeight="300.0" prefWidth="402.5">
+         <columns>
+            <TableColumn fx:id="id" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="#" />
+            <TableColumn fx:id="day" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" resizable="false" text="Dzień w roku" />
+            <TableColumn fx:id="hours" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" text="Czas [h]" />
+         </columns></TableView>
+      <BarChart fx:id="barChart" layoutX="465.0" layoutY="160.0" legendVisible="false" minHeight="400.0" minWidth="400.0">
+        <xAxis>
+          <CategoryAxis label="Dzień w roku" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Czas [h]" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Button fx:id="button" layoutX="39.0" layoutY="500.0" minWidth="400.0" mnemonicParsing="false" onAction="#toggleResult" text="ROSNĄCO">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Label fx:id="label" layoutX="100.0" layoutY="60.0" maxWidth="800.0" text=" RANKING 10-CIU NAJBARDZIEJ PRACOWITYCH DNI WG PRZEPRACOWANYCH GODZIN WE WSZYSTKICH PROJEKTACH PRZEZ WSZYSTKICH PRACOWNIKÓW" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+        <Button fx:id="buttonXLS" layoutX="830.0" layoutY="585.0" minHeight="45.0" minWidth="65.0" mnemonicParsing="false" onAction="#printXLS" text="XLS" textFill="#037224">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonPDF" layoutX="910.0" layoutY="585.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#printPDF" text="PDF" textFill="RED">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Button>
+    </children>
+
+
+
+</AnchorPane>
