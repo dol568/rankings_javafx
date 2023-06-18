@@ -34,12 +34,12 @@ public class HomePage implements Initializable {
                 data.setSpreadSheet(selectedDirectory.getAbsolutePath());
                 labelHome.setText("Wczytano dane");
                 labelHome.setTextFill(Paint.valueOf("GREEN"));
-                labelHome.setLayoutX(418.0);
+                labelHome.setLayoutX(518.0);
             } else {
                 data.setSpreadSheet(null);
                 labelHome.setText("Brak plików XLS");
                 labelHome.setTextFill(Paint.valueOf("RED"));
-                labelHome.setLayoutX(418.0);
+                labelHome.setLayoutX(518.0);
             }
         }
     }
@@ -49,7 +49,7 @@ public class HomePage implements Initializable {
         if (data.getSpreadSheet() != null) {
             labelHome.setText("Wczytano dane");
             labelHome.setTextFill(Paint.valueOf("GREEN"));
-            labelHome.setLayoutX(418.0);
+            labelHome.setLayoutX(518.0);
         }
     }
 }

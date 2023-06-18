@@ -9,27 +9,29 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MonthsToHoursReport implements ReportStrategy{
+public class DaysToHoursRanking implements Ranking {
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE ;
 
     @Override
     public Map<Object, Object> getReport(SpreadSheet spreadsheet) {
-        Map<Object, Object> monthsToHours = new HashMap<>();
+        Map<Object, Object> daystoHours = new HashMap<>();
         for (Person s : spreadsheet.getPersons()) {
             for (Project project : s.getProjects()) {
                 for (Activity activity : project.getActivities()) {
                     String date = formatter.format(activity.getDate());
                     double duration = activity.getDuration();
-                    if (monthsToHours.containsKey(date)) {
-                        double add = (double) monthsToHours.get(date) + duration;
-                        monthsToHours.put(date, add);
+                    if (daystoHours.containsKey(date)) {
+                        double add = (double) daystoHours.get(date) + duration;
+                        daystoHours.put(date, add);
                     } else {
-                        monthsToHours.put(date, activity.getDuration());
+                        daystoHours.put(date, activity.getDuration());
                     }
                 }
             }
         }
-        return monthsToHours;
+        return daystoHours;
     }
+
+
 }

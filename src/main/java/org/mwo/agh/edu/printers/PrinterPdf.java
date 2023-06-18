@@ -27,13 +27,12 @@ public class PrinterPdf {
         double originalWidth = pane.getBoundsInParent().getWidth();
         double originalHeight = pane.getBoundsInParent().getHeight();
 
-        double scaleX = pageLayout.getPrintableWidth() / originalWidth;
-        double scaleY = pageLayout.getPrintableHeight() / originalHeight;
+        double scaleX = Math.min(pageLayout.getPrintableWidth() / originalWidth, pageLayout.getPrintableHeight() / originalHeight);
 
         PrinterJob job = PrinterJob.createPrinterJob();
         if (job != null) {
             job.getJobSettings().setPageLayout(pageLayout);
-            pane.getTransforms().add(new Scale(scaleX, scaleY));
+            pane.getTransforms().add(new Scale(scaleX, scaleX));
             boolean success = job.printPage(pane);
             if (success) {
                 job.endJob();

@@ -1,7 +1,7 @@
 package org.mwo.agh.edu.pages;
 
-import org.mwo.agh.edu.report.EmployeesToHoursReport;
-import org.mwo.agh.edu.report.Report;
+import org.mwo.agh.edu.report.EmployeesToHoursRanking;
+import org.mwo.agh.edu.report.RankingGenerator;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -63,9 +63,9 @@ public class EmployeesToHoursRankingPage extends PageRanking {
     void toggleResult(ActionEvent event) throws IOException {
             if (data.getSpreadSheet() != null) {
                 tableView.getItems().clear();
-                String direction = report.getDirection();
-                report.setDirection(direction.equalsIgnoreCase("ASC") ? "DESC" : "ASC");
-                items = report.generateReport();
+                String direction = rankingGenerator.getDirection();
+                rankingGenerator.setDirection(direction.equalsIgnoreCase("ASC") ? "DESC" : "ASC");
+                items = rankingGenerator.generateReport();
                 tableView.setItems(mapToObservableListConverter.convert(items));
                 button.setText(direction.equalsIgnoreCase("ASC") ? "MALEJĄCO" : "ROSNĄCO");
                 label.setText(direction.equalsIgnoreCase("ASC") ? LABEL_TEXT : LABEL_TEXT_REVERSE);
@@ -73,8 +73,8 @@ public class EmployeesToHoursRankingPage extends PageRanking {
     }
 
     @Override
-    protected Report createReport() {
-        return new Report(new EmployeesToHoursReport());
+    protected RankingGenerator createReport() {
+        return new RankingGenerator(new EmployeesToHoursRanking());
     }
 
     @Override

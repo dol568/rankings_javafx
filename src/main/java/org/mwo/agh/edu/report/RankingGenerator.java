@@ -5,13 +5,13 @@ import org.mwo.agh.edu.models.SpreadSheet;
 
 import java.util.*;
 
-public class Report {
-    private final ReportStrategy strategy;
+public class RankingGenerator {
+    private final Ranking strategy;
     Data data;
-    String direction = "ASC";
+    String direction = "DESC";
     int limit = 10;
 
-    public Report(ReportStrategy strategy) {
+    public RankingGenerator(Ranking strategy) {
         this.strategy = strategy;
         this.data = Data.getInstance();
    }
@@ -34,12 +34,15 @@ public class Report {
     private Map<Object, Object> limitMap(List<Map.Entry<Object, Object>> entries) {
         Map<Object, Object> limitedMap = new LinkedHashMap<>();
         int count = 0;
+        double lastValue = 0.0;
+
         for (Map.Entry<Object, Object> entry : entries) {
-            limitedMap.put(entry.getKey(), entry.getValue());
-            count++;
-            if (count >= limit) {
+            if (count >= limit && !entry.getValue().equals(lastValue)) {
                 break;
             }
+            limitedMap.put(entry.getKey(), entry.getValue());
+            count++;
+            lastValue = (double) entry.getValue();
         }
         return limitedMap;
     }

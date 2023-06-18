@@ -26,7 +26,7 @@ public class App extends Application {
             primaryStage.setY(event.getSceneY() - y);
         });
 
-        primaryStage.setScene(new Scene(root, 1200, 700));
+        primaryStage.setScene(new Scene(root, 1400, 700));
         primaryStage.show();
     }
 

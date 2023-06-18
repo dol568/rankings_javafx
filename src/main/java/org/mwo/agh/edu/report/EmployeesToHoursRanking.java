@@ -8,7 +8,7 @@ import org.mwo.agh.edu.models.SpreadSheet;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmployeesToHoursReport implements ReportStrategy{
+public class EmployeesToHoursRanking implements Ranking {
 
     @Override
     public Map<Object, Object> getReport(SpreadSheet spreadsheet) {

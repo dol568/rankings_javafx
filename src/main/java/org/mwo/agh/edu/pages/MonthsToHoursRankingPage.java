@@ -1,7 +1,7 @@
 package org.mwo.agh.edu.pages;
 
-import org.mwo.agh.edu.report.MonthsToHoursReport;
-import org.mwo.agh.edu.report.Report;
+import org.mwo.agh.edu.report.MonthsToHoursRanking;
+import org.mwo.agh.edu.report.RankingGenerator;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -63,9 +63,9 @@ public class MonthsToHoursRankingPage extends PageRanking {
             tableView.getItems().clear();
             barChart.getData().clear();
             barChart.layout();
-            String direction = report.getDirection();
-            report.setDirection(direction.equalsIgnoreCase("ASC") ? "DESC" : "ASC");
-            items = report.generateReport();
+            String direction = rankingGenerator.getDirection();
+            rankingGenerator.setDirection(direction.equalsIgnoreCase("ASC") ? "DESC" : "ASC");
+            items = rankingGenerator.generateReport();
             tableView.setItems(mapToObservableListConverter.convert(items));
             button.setText(direction.equalsIgnoreCase("ASC") ? "MALEJĄCO" : "ROSNĄCO");
             barChart.getData().add(mapToXYChartSeriesConverter.convert(items));
@@ -74,8 +74,8 @@ public class MonthsToHoursRankingPage extends PageRanking {
     }
 
     @Override
-    protected Report createReport() {
-        return new Report(new MonthsToHoursReport());
+    protected RankingGenerator createReport() {
+        return new RankingGenerator(new MonthsToHoursRanking());
     }
 
     @Override

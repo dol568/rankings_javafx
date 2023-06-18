@@ -6,7 +6,7 @@ import org.mwo.agh.edu.converters.MapToListConverter;
 import org.mwo.agh.edu.converters.MapToPieChartDataConverter;
 import org.mwo.agh.edu.converters.MapToXYChartDataConverter;
 import org.mwo.agh.edu.models.Data;
-import org.mwo.agh.edu.report.Report;
+import org.mwo.agh.edu.report.RankingGenerator;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -19,7 +19,7 @@ public abstract class PageRanking implements Initializable {
     protected String LABEL_TEXT;
     protected String LABEL_TEXT_REVERSE;
     protected Data data;
-    protected Report report;
+    protected RankingGenerator rankingGenerator;
     protected Map<Object, Object> items;
     protected MapToListConverter mapToObservableListConverter;
     protected MapToXYChartDataConverter mapToXYChartSeriesConverter;
@@ -30,7 +30,7 @@ public abstract class PageRanking implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         data = Data.getInstance();
-        report = createReport();
+        rankingGenerator = createReport();
         mapToObservableListConverter = new MapToListConverter();
         mapToXYChartSeriesConverter = new MapToXYChartDataConverter();
         mapToPieChartSeriesConverter = new MapToPieChartDataConverter();
@@ -38,12 +38,12 @@ public abstract class PageRanking implements Initializable {
         printerPdf = new PrinterPdf();
 
         if (data.getSpreadSheet() != null) {
-            items = report.generateReport();
+            items = rankingGenerator.generateReport();
             pageInitialization();
         }
     }
 
-    protected abstract Report createReport();
+    protected abstract RankingGenerator createReport();
 
     protected abstract void pageInitialization();
 }

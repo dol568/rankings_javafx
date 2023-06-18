@@ -4,17 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mwo.agh.edu.Controller">
+<BorderPane prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mwo.agh.edu.Controller">
    <top>
-      <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #D9D8D5;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="50.0" prefWidth="1400.0" style="-fx-background-color: #D9D8D5;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="21.0" layoutY="12.0" text="RAPORT GODZINOWY">
+            <Label layoutX="21.0" layoutY="12.0" text="RANKINGI GODZINOWE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="exit" layoutX="1155.0" layoutY="13.0" text="EXIT">
+            <Label fx:id="exit" layoutX="1355.0" layoutY="13.0" text="EXIT">
                <font>
                   <Font size="16.0" />
                </font>
@@ -27,8 +26,7 @@
          <children>
             <VBox layoutY="32.0" prefHeight="225.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#home" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;"
-                          text="STRONA GŁÓWNA">
+                  <Button mnemonicParsing="false" onAction="#home" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #807F7D;" text="STRONA GŁÓWNA">
                      <font>
                         <Font size="15.0" />
                      </font>
